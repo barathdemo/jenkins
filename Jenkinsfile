@@ -12,4 +12,16 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            script {
+                def buildStatus = currentBuild.currentResult
+                def log = currentBuild.rawBuild.getLog(100).join("\n")
+
+                emailext subject: "Jenkins Build - ${buildStatus}",
+                         body: "Build Status: ${buildStatus}\n\nLog Output:\n${log}",
+                         to: "skyper801@gmail.com"
+            }
+        }
+    }
 }
