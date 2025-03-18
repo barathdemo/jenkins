@@ -20,8 +20,8 @@ pipeline {
 
                 emailext subject: "Jenkins Build - ${buildStatus}",
                          body: "Build Status: ${buildStatus}\n\nLog Output:\n${log}",
-                         to: "skyper801@gmail.com"
+                         to: "barath.n1999@gmail.com"
             }
-        }
-    }
+        }
+    }
 }
